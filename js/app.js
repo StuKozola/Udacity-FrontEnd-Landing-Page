@@ -22,12 +22,14 @@
  * Define Global Variables
  * 
 */
-
+const navBarMenu = document.querySelector('.navbar__menu');
+const navBarList = document.querySelector('#navbar__list');
+const sections = document.querySelectorAll('section');
 
 /**
  * End Global Variables
- * Start Helper Functions
  * 
+ * Start Helper Functions
 */
 
 
@@ -38,8 +40,22 @@
  * 
 */
 
-// build the nav
+// build the navbar
+function buildNavBar() {
+    // loop through the sections and create a list item for each one
+    sections.forEach(section => {
+        // add the list item to the navbar
+        const listItem = document.createElement('li');
+        // add the class of the section to the list item
+        listItem.className = 'navbar__item';
+        // add link to the section
+        listItem.innerHTML = `<a href="#${section.id}">${section.dataset.nav}</a>`;
+        // add the list item to the navbar
+        navBarList.appendChild(listItem);
+    });
+}
 
+buildNavBar();
 
 // Add class 'active' to section when near top of viewport
 
