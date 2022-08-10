@@ -49,12 +49,13 @@ function buildNavBar() {
         // add the class of the section to the list item
         listItem.className = 'navbar__item';
         // add link to the section
-        listItem.innerHTML = `<a href="#${section.id}">${section.dataset.nav}</a>`;
+        listItem.innerHTML = `<a href="#${section.id}" class="menu__link">${section.dataset.nav}</a>`;
         // add the list item to the navbar
         navBarList.appendChild(listItem);
     });
 }
 
+// Instantiate the navbar
 buildNavBar();
 
 // Add class 'active' to section when near top of viewport
