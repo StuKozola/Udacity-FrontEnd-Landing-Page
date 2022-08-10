@@ -59,7 +59,24 @@ function buildNavBar() {
 }
 
 // Add class 'active' to section when near top of viewport
-
+function addActiveClass(section) {
+    // get the top of the section
+    const sectionTop = section.getBoundingClientRect().top;
+    // get the bottom of the section
+    const sectionBottom = section.getBoundingClientRect().bottom;
+    // get the top of the viewport
+    const viewportTop = window.pageYOffset;
+    // get the bottom of the viewport
+    const viewportBottom = window.pageYOffset + window.innerHeight;
+    // if the top of the section is within the viewport
+    if (sectionTop >= viewportTop && sectionTop <= viewportBottom) {
+        // add the class of 'active' to the section
+        section.classList.add('active');
+    } else {
+        // remove the class of 'active' from the section
+        section.classList.remove('active');
+    }
+}
 
 // Scroll to anchor ID using scrollTO event
 function scrollToSection(navBarItem, section) {
@@ -85,3 +102,8 @@ buildNavBar();
 
 
 // Set sections as active
+window.addEventListener('scroll', () => {
+    sections.forEach(section => {
+        addActiveClass(section);
+    });
+} );
