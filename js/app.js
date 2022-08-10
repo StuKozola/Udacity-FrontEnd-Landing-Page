@@ -52,17 +52,25 @@ function buildNavBar() {
         listItem.innerHTML = `<a href="#${section.id}" class="menu__link">${section.dataset.nav}</a>`;
         // add the list item to the navbar
         navBarList.appendChild(listItem);
+
+        // add event listener to the list item for scrooling to the section
+        scrollToSection(listItem, section);
     });
 }
-
-// Instantiate the navbar
-buildNavBar();
 
 // Add class 'active' to section when near top of viewport
 
 
 // Scroll to anchor ID using scrollTO event
-
+function scrollToSection(navBarItem, section) {
+    navBarItem.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: section.offsetTop,
+            behavior: 'smooth'
+        });
+    });
+}
 
 /**
  * End Main Functions
@@ -70,8 +78,10 @@ buildNavBar();
  * 
 */
 
-// Build menu 
+// Build menu
+buildNavBar(); 
 
 // Scroll to section on link click
+
 
 // Set sections as active
