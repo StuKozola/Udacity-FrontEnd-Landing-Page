@@ -24,6 +24,17 @@ This project started form the [starter code](https://github.com/udacity/fend/tre
 To install the code, use `git clone` to copy the repo locally.  Alternatively you can download the files from this repository.
 
 # Usage
-To view the completed webpage, open `index.html` in a browser.  To make modifications, use the text editor of choice.  For this project I used VS Code.
+To view the completed webpage, open `index.html` in a browser.  To make modifications, use the text editor of choice.  For this project I used VS Code.  The directory structure is as follows:
+
+```
+-css            directory for stylesheets
+---sytles.css   css sytlesheet
+-js             directory for javascript
+---app.js       javascript for the landing page
+index.html      HTML file of the landing page
+LICENSE         MIT license file
+README.md       This document you are reading
+```
 
 # License
+MIT License - Copyright (c) 2022 Stuart Kozola
