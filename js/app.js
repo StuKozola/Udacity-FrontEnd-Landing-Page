@@ -48,6 +48,8 @@ function buildNavBar() {
         const listItem = document.createElement('li');
         // add the class of the section to the list item
         listItem.className = 'navbar__item';
+        // add section id to the list item for use activating the section
+        listItem.id = section.id;
         // add link to the section
         listItem.innerHTML = `<a href="#${section.id}" class="menu__link">${section.dataset.nav}</a>`;
         // add the list item to the navbar
@@ -62,19 +64,18 @@ function buildNavBar() {
 function addActiveClass(section) {
     // get the top of the section
     const sectionTop = section.getBoundingClientRect().top;
-    // get the bottom of the section
-    const sectionBottom = section.getBoundingClientRect().bottom;
-    // get the top of the viewport
-    const viewportTop = window.pageYOffset;
-    // get the bottom of the viewport
-    const viewportBottom = window.pageYOffset + window.innerHeight;
     // if the top of the section is within the viewport
-    if (sectionTop >= viewportTop && sectionTop <= viewportBottom) {
+    if (sectionTop >= 0 && sectionTop <= window.innerHeight) {
         // add the class of 'active' to the section
         section.classList.add('active');
+        // add the class of 'active' to the list item
+        navBarList.querySelector(`#${section.id}`).classList.add('active');
+
     } else {
         // remove the class of 'active' from the section
         section.classList.remove('active');
+        // remove the class of 'active' from the list item
+        navBarList.querySelector(`#${section.id}`).classList.remove('active');
     }
 }
 
